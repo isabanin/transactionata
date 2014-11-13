@@ -24,8 +24,8 @@ module Transactionata
       end
       
       alias_method :original_load_fixtures, :load_fixtures
-      def load_fixtures
-        original_load_fixtures
+      def load_fixtures(config)
+        original_load_fixtures(config)
         self.class.test_data_block.call
         
         if defined?(ActiveRecord::Fixtures) # Rails 3.1
